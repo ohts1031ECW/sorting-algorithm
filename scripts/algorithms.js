@@ -33,6 +33,6 @@ const algorithms = {
     },
 
     "shakersort": async()=>{
-        console.log("test")
+        console.log("test");
     }
 }

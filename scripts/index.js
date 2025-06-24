@@ -22,9 +22,7 @@ window.onload = () =>{
 
 
 
-
-
-
+//random
 genrandomBtn.onclick = () => {
     console.log(utils.GenRandomNoConflict(-10, 10));
     console.log(algorithms)

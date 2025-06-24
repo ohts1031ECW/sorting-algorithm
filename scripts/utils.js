@@ -51,6 +51,7 @@ const utils = {
         return Array;
     },
 
+    //グラフ描画関数
     "DrawGraph": (Array) => {
         //console.log("drawing graph");
     
