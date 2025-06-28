@@ -1,38 +1,45 @@
-const algorithms = {
+import { DrawGraph } from "./utils.js";
 
-    "boublesort": async(array, delay) => {
-        let finishAdj = 1;
-        let complete = false;
-        let loopswap = false;
-        const Interval = setInterval(() => {
-            for (let i = 0; i < array.length - finishAdj; i++) {
-                if (array[i] < array[i + 1]) {
-                    temp = array[i];
+async function boublesort(context,array, delay) {
+    let temp;
+    let finishAdj = 1;
+    let complete = false;
+    let loopswap = false;
 
-                    //順番入れ替え
-                    array[i] = array[i + 1];
-                    array[i + 1] = temp;
-                    loopswap = true;
+    const Interval = setInterval(() => {
+        for (let i = 0; i < array.length - finishAdj; i++) {
+            if (array[i] < array[i + 1]) {
+                temp = array[i];
 
-                    //描画更新
-                    utils.DrawGraph(array);
-                }
+                //順番入れ替え
+                array[i] = array[i + 1];
+                array[i + 1] = temp;
+                loopswap = true;
+
+                //描画更新
+                DrawGraph(context,array);
             }
-            if (!loopswap) {
-                complete = true;
-            }
-            finishAdj++;
-        }, delay);
-
-        //ループ停止
-        if (complete) {
-            console.log("sort completed")
-            clearInterval(Interval);
         }
-        return array;
-    },
+        if (!loopswap) {
+            complete = true;
+        }
+        finishAdj++;
+    }, delay);
 
-    "shakersort": async()=>{
-        console.log("test");
+    //ループ停止
+    if (complete) {
+        console.log("sort completed")
+        clearInterval(Interval);
     }
+    return array;
+};
+
+function shakersort() {
+    console.log("test");
+}
+
+
+export {
+    boublesort,
+    shakersort
 }
