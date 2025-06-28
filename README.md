@@ -1,0 +1,3 @@
+# sorting algorithms
+
+このリポジトリはohts1031がソートアルゴリズムをhtml,jsで可視化するやつを作成してるものです。
