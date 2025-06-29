@@ -1,4 +1,4 @@
-import { DrawGraph } from "./utils.js";
+import { DrawGraph, heighlightSelection } from "./utils.js";
 
 async function boublesort(context,array, delay) {
     let temp;
@@ -18,10 +18,13 @@ async function boublesort(context,array, delay) {
 
                 //描画更新
                 DrawGraph(context,array);
+                heighlightSelection(context, array, i);
             }
+            
         }
         if (!loopswap) {
             complete = true;
+            
         }
         finishAdj++;
     }, delay);
@@ -30,11 +33,12 @@ async function boublesort(context,array, delay) {
     if (complete) {
         console.log("sort completed")
         clearInterval(Interval);
+
     }
     return array;
 };
 
-function shakersort() {
+async function shakersort() {
     console.log("test");
 }
 

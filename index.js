@@ -24,10 +24,10 @@ window.onload = () =>{
 
 
 startbtn.addEventListener("click", (e) => {
-    console.log("start button pressed");
-    console.log(algorithm_select.value);
+    //console.log("start button pressed");
+    //console.log(algorithm_select.value);
     const sortArray = Utils.GenRandomIntNoConflict(0, 100);
-    console.log(sortArray);
+    //console.log(sortArray);
     
     Algorithms.boublesort(context,sortArray,100)
 })

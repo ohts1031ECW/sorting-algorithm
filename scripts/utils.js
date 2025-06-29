@@ -51,7 +51,7 @@ function GenRandomIntNoConflict(min, max) {
 };
 
 //グラフ描画関数
-function DrawGraph(context,Array) {
+function DrawGraph(context, Array) {
     //console.log("drawing graph");
 
     //clear canvas
@@ -60,18 +60,35 @@ function DrawGraph(context,Array) {
     for (const index in Array) {
         const value = Array[index];
 
+        context.save();
         context.fillRect(
             index * per_bar,
-            value * 10,
+            canvas.height - value * 10,
             per_bar,
             1000
         )
     }
 }
 
+async function heighlightSelection(context, Array, selection) {
 
+    const per_bar = context.canvas.width / Array.length
+    context.save();
+    //選択中のバーを赤くする
+    context.fillStyle = "rgba(255, 0, 0, 0.5)";
+    context.fillRect(
+        selection* per_bar,
+        0,
+        per_bar,
+        1000
+    )
+
+    context.restore();
+
+}
 export {
     GenRandomInt,
     GenRandomIntNoConflict,
-    DrawGraph
+    DrawGraph,
+    heighlightSelection,
 }
