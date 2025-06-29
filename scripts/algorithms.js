@@ -4,9 +4,9 @@ async function boublesort(context,array, delay) {
     let temp;
     let finishAdj = 1;
     let complete = false;
-    let loopswap = false;
-
+    
     const Interval = setInterval(() => {
+        let loopswap = false;
         for (let i = 0; i < array.length - finishAdj; i++) {
             if (array[i] < array[i + 1]) {
                 temp = array[i];
@@ -20,21 +20,22 @@ async function boublesort(context,array, delay) {
                 DrawGraph(context,array);
                 heighlightSelection(context, array, i);
             }
-            
         }
+
         if (!loopswap) {
             complete = true;
-            
         }
         finishAdj++;
+
+        //ループ停止
+        if (complete) {
+            console.log("sort completed")
+            clearInterval(Interval);
+            DrawGraph(context, array);
+        }
     }, delay);
 
-    //ループ停止
-    if (complete) {
-        console.log("sort completed")
-        clearInterval(Interval);
 
-    }
     return array;
 };
 
